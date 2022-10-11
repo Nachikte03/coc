@@ -1,0 +1,78 @@
+html,
+body{
+  background-color:lightgray;
+  font-family: 'Raleway', Helvetica, sans-serif;
+  text-align:center;
+  min-width:320px;
+}
+header{
+  font-weight:bold;
+  margin: 2px;;
+}
+#form-outer{
+  background-color:rgb(250,250,250);
+  margin:0 auto;
+  border-radius:4px;
+  padding:10px;
+  padding-top:20px;
+}
+
+.labels{
+  display:inline-block;
+  text-align:left;
+  width:40%;
+  padding:5px;
+  vertical-align:top;
+  margin-top:10px;
+}
+.rightTab{
+  display:inline-block;
+  text-align:right;
+  width:48%;
+  vertical-align:middle;
+}
+
+.paymentinfo{
+  display:inline-block;
+  text-align:left;
+  width:40%;
+  padding:5px;
+  vertical-align:top;
+  margin-top:10px;
+}
+@media screen and (max-width: 833px) {
+  .paymentinfo {
+    width: 80%;
+  }
+  select {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 833px) {
+  .input-field {
+    width: 80%;
+  }
+  select {
+    width: 90%;
+  }
+}
+
+
+
+@media screen and (max-width: 520px) {
+  .labels {
+    width: 50%;
+    text-align: left;
+  }
+  .rightTab {
+    width: 50%;
+    float: right;
+  }
+  .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+}

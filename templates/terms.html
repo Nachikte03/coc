@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/termsn.css" />
+    <script src="/static/javascript/terms.js"></script>
+    <title>CoC Terms and Conditions</title>
+  </head>
+</html>
+<body>
+  <header>
+    <h1 id="title">Cab of Comfort</h1>
+    <h3 id="title">your comfortable ride , just a click away</h3>
+  </header>
+
+  <div id="form-outer">
+    <form
+      method="POST"
+      action="payment/"
+      id="bookingForm"
+      onsubmit="confirmBook()"
+    >
+      {% csrf_token %}
+      <h3 id="title">Terms and Conditions</h3>
+      <div id="terms">
+        <ol>
+          <li>Hello</li>
+        </ol>
+      </div>
+    </form>
+  </div>
+</body>

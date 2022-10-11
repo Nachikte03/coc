@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cocpayment</title>
+    <link rel="stylesheet" href="/static/css/confirm.css" />
+    <script src="/static/javascript/confirm.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Cab of Comfort</h1>
+      <h3 id="title">Thanks for choosing us !</h3>
+    </header>
+
+    <div id="form-outer">
+      <h3 id="ticketNumber" name="ticketNumber">
+        Ticket Number - {{TicketNumber}}
+      </h3>
+      <p>Kindly Note Down This Ticket Number</p>
+
+      <form action="/confirm/" method="post">
+        {% csrf_token %}
+        <div class="rowTab">
+          <div class="labels">
+            <label for="nameOfCustomer" id="name-label">Date of Journey</label>
+          </div>
+          <div class="rightTab">
+            <label for="nameOfCustomer" name="txtDateOfJourney"
+              ><b>{{txtDateOfJourney}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="mobileNoOfCustomer" id="number-label"
+              >Cab Details</label
+            >
+          </div>
+          <div class="rightTab">
+            <label for="mobileNoOfCustomer" name="txtCabDetails"
+              ><b>{{txtCabDetails}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="mobileNoOfCustomer" id="number-label">Seat No</label>
+          </div>
+          <div class="rightTab">
+            <label for="mobileNoOfCustomer" name="txtSeatNumber"
+              ><b>{{txtSeatNumber}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectdateOfJourney">PickUp Time</label>
+          </div>
+          <div class="rightTab">
+            <label for="selectdateOfJourney" name="txtPickUpTime"
+              ><b>{{txtPickUpTime}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectjourneyRoute" id="journeyRoutelabel"
+              >PickUp Location</label
+            >
+          </div>
+          <div class="rightTab">
+            <label for="selectjourneyRoute" name="txtPickUpLocation"
+              ></b>{{txtPickUpLocation}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectseatNumber" name="seatNumberlabel">Luggage</label>
+          </div>
+          <div class="rightTab">
+            <label for="selectseatNumber" name="txtLuggage"
+              ><b>{{txtLuggage}}</b></label
+            >
+          </div>
+        </div>
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectpickUp" ="">Amount</label>
+          </div>
+          <div class="rightTab">
+            <label for="selectseatNumber" name="txtBookingAmount"
+              ><b>{{txtBookingAmount}}</b></label
+            >
+          </div>
+        </div>
+        <br />
+
+        <div class="rowTab">
+          <div class="paymentinfo">
+            <h3>
+              Pay on the following QR Code or UPI Id to confirm your booking
+            </h3>
+            <img class="carTemplate" src="/static/images/qrcode.jpg" alt="#" />
+          </div>
+        </div>
+
+        <div></div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/javascript/bookingform.js"></script>
+    <link rel="stylesheet" href="/static/css/bookingform.css">
+    <title>CabOfComfort</title>
+</head>
+<body> 
+  <header>
+    <h1 id="title">Cab of Comfort</h1>
+    <h3 id="title">your comfortable ride , few clicks away</h3>
+  </header>
+
+  <div id="form-outer">
+  <form method = "post" action="/bookingform/" id="bookingForm" onsubmit="confirmBook()">
+    {% csrf_token %}
+    <h3 id="title"></h3>
+    
+         <div class="rowTab"> 
+          <div class="labels">
+            <label for="selectdateOfJourney">Journey Date</label>
+          </div>
+          <div class="rightTab"> 
+            <input onclick="datefield()" name = "selectdateOfJourney"  id = "selectdateOfJourney" class="datefield" type="date" required>
+          </div>
+
+          
+         </div>
+
+
+      <div class="rowTab">
+          <div class="labels">
+      <label for="selectjourneyRoute" id="journeyRoutelabel">Cab Route</label>
+          </div>
+        <div class="rightTab">
+          <select onchange ="populate('selectjourneyRoute','selectpickUp','selectdropping')" name = "selectjourneyRoute" id="selectjourneyRoute" class="dropdown" required>
+         <option Selected disabled value="">Select an option</option>
+         <option value="MTP6am">Mumbai to Pune (6 am)</option>
+         <option value="PTM1pm">Pune to Mumbai (1 pm)</option>
+          </select>
+     </div>
+  
+    <div class=rowTab>
+    <button id="procced" class="submit" type="submit" >Procced</button>
+    </div>
+    </form>
+ </div>
+
+ 
+
+
+</body>
+</html>

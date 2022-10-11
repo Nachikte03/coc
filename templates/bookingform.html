@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/bookingform.css" />
+    <script src="/static/javascript/bookingform.js"></script>
+    <title>CabOfComfort</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Cab of Comfort</h1>
+      <h3 id="title">your comfortable ride , few clicks away</h3>
+    </header>
+
+    <div id="form-outer">
+      <form
+        method="post"
+        action="/confirm/"
+        id="bookingForm"
+        
+      >
+        {% csrf_token %}
+        <div class="rowTab"> 
+          <div class="labels">
+            <label for="selectdateOfJourney">Journey Date</label>
+          </div>
+          <div class="rightTab"> 
+          <select name = "selectdateOfJourney" id="selectdateOfJourney" class="dropdown" required>
+         <option Selected disabled value="1">Select an option</option>
+         <option value="{{txtDate}}">{{txtDate}}</option>
+          </select>
+          </div>
+
+          
+         </div>
+
+
+      <div class="rowTab">
+          <div class="labels">
+      <label id="journeyRoutelabel">Cab Route</label>
+          </div>
+        <div class="rightTab">
+          <select  name = "selectjourneyRoute" id="selectjourneyRoute" class="dropdown" required>
+         <option Selected disabled value="1">Select an option</option>
+         <option value="{{txtCabRouteValue}}">{{Route}})</option>
+          </select>
+     </div>
+
+        <div class="rowTab">
+          <div class="labels">
+            <label for="nameOfCustomer" id="name-label">Name</label>
+          </div>
+
+          <div class="rightTab">
+            <input
+              type="text"
+              name="nameOfCustomer"
+              class="input-field"
+              id="nameOfCustomer"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="rowTab">
+          <div class="labels">
+            <label for="mobileNoOfCustomer" id="number-label">Mobile No</label>
+          </div>
+          <div class="rightTab">
+            <input
+              type="text"
+              name="mobileNoOfCustomer"
+              id="mobileNoOfCustomer"
+              placeholder="Enter Your Mobile Number"
+              class="input-field"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="rowTab">
+          <img class="carTemplate" src="/static/images/seat.jpg" alt="#" />
+        </div>
+
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectseatNumber" id="seatNumberlabel"
+              >{{"Seat Number"}}</label
+            >
+          </div>
+          <div class="rightTab">
+            <select id="selectseatNumber" name="selectseatNumber" class="dropdown" required>
+              <option selected disabled value="">Select an option</option>
+              {%for key,value in data.items%}
+                     {%if key == tocheckseat%}
+                         {%for i in n%}
+                               {%if i in value%}
+                                    <option disabled value="{{i}}">{{i}}</option>
+                               {%else%}
+                                    <option value="{{i}}">{{i}}</option>
+                               {%endif%}
+                         {%endfor%}
+                     {%endif%}
+                     
+                      
+              {%endfor%}
+              {%if key %}
+                   {%for i in n%}
+                        <option value="{{i}}">{{i}}</option>
+                    {%endfor%}
+              {%endif%}
+               </select>
+          </div>
+        </div>
+
+        <div class="rowTab">
+          <div class="labels">
+            <label for="selectpickUp" id="pickUplabel">PickUp Location</label>
+          </div>
+          <div class="rightTab">
+            <select
+              id="selectpickUp"
+              name="selectpickUp"
+              class="dropdown"
+              required
+            >
+              <option selected disabled value="">Select an option</option>
+              {%for key,value in pickuparray.items%}
+                     <option value="{{key}}">{{value.0}}</option>
+              {%endfor%}
+            </select>
+          </div>
+        </div>
+
+         <div class="rowTab">
+          <div class="labels">
+            <label for="selectdropping" id="droppinglabel"
+              >Dropping Location</label
+            >
+          </div>
+          <div class="rightTab">
+            <select
+              id="selectdropping"
+              name="selectdropping"
+              class="dropdown"
+              required
+            >
+              <option selected disabled value="">Select an option</option>
+              {%for key,value in droppingarray.items%}
+                     <option value="{{key}}">{{value.0}}</option>
+              {%endfor%}
+            </select>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="rowTab">
+          <div class="labels">
+            <label for="luggaeDetails">Luggauge</label>
+          </div>
+          <div class="rightTab">
+            <textarea
+              id="luggageDetails"
+              name="luggaeDetails"
+              class="input-field"
+              style="height: 50px; resize: vertical"
+              name="comment"
+              placeholder="Specify Proper Luggage Information. eg-(one laptop bag and two mini trolley bags)."
+              required
+            ></textarea>
+          </div>
+
+
+
+          
+
+        <div class="rowTab">
+          <div class="labels">
+            <input type="checkbox" name="check" id="terms" value="1" required />
+            <label
+              >Accept
+              <a href="terms/" target="_blank">Terms and Conditions</a></label
+            >
+          </div>
+        </div>
+
+        <button id="submit" class="submit" type="submit">Procced</button>
+      </form>
+    </div>
+  </body>
+</html>
